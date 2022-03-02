@@ -18,7 +18,7 @@ export default function index() {
           });
       }}
     >
-      Upload de arquivo.csv
+      <h3>Arraste o arquivo</h3>
     </DropZone>
   );
 }
