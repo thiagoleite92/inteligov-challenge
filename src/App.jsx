@@ -1,11 +1,12 @@
 import React from 'react';
-import DropZone from './components/dropzone';
+import { DropZone, LoadFile } from './components';
 
 function App() {
   return (
-    <DropZone>
-      Upload de arquivo.csv
-    </DropZone>
+    <>
+      <DropZone />
+      <LoadFile />
+    </>
   );
 }
 
