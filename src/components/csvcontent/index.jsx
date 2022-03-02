@@ -1,10 +1,13 @@
 import React from 'react';
 import CsvContent from './CsvContent';
 
-function index() {
+function index({ fileInfo }) {
+  console.log(fileInfo);
   return (
     <CsvContent>
-      teste
+      <thead>
+        {fileInfo[0].name}
+      </thead>
     </CsvContent>
   );
 }

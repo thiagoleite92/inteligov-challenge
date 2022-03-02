@@ -9,7 +9,7 @@ export default function index() {
       {
         !fileInfo
           ? null
-          : <CsvContent />
+          : <CsvContent fileInfo={fileInfo} />
     }
     </LoadFile>
   );
