@@ -1,13 +1,14 @@
 import style from 'styled-components';
 
 const DropZone = style.div`
-  border: 2px solid black;
+  border: 1px solid black;
   width: 500px;
-  height: 50px;
-  background-color: #f8f8f8;
+  background-color: #8cc140;
   margin: 20px auto;
-  padding: 70px 0;
+  padding: 50px 0;
   text-align: center;
+  text-transform: uppercase;
+  color: #1f2418;
 
   &:hover {
     background-color: rgba(15, 255, 80, 0.3);

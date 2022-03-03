@@ -20,7 +20,7 @@ export default function index() {
           });
       }}
     >
-      <h3>Arraste o arquivo</h3>
+      <h3>drop file here</h3>
     </DropZone>
   );
 }

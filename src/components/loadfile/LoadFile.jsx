@@ -1,27 +1,38 @@
 import style from 'styled-components';
 
 const LoadFile = style.section`
-  width: 50vh;
-  margin: auto;
+  margin: 0 auto;
   
   div {
     display: flex;
+    width: 100vh;
+    margin: 0 auto;
   }
-
+  
   span {
-    padding: 5px;
-    width: 50vh;
+    width: 100%;
+    padding: 10px 4px;
     text-align: center;
     border: solid 1px black;
   }
 
   div > div:nth-child(1) {
-    background-color: green;
+    background-color: #019973;
+    text-transform: uppercase;
   }
 
-  div > div:last-child  {
+  div > div:nth-child(2n + 2) {
+    background-color: #AFE1AF;
+  }
+
+  div > div:nth-child(2n + 3) {
+    background-color: #C1E1C1;
+  }
+
+  div > div:last-child {
   {
-    background-color: green;
+    background-color: #019973;
+    height: 25px;
   }
 
 
