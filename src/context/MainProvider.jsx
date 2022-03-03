@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import MainContext from './MainContext';
 
 function MainProvider({ children }) {
-  const [fileContent, setFileContent] = useState([]);
-  console.log(Array.isArray(fileContent), 'aqui');
+  const [globalFileContent, setGlobalFileContent] = useState([]);
+  console.log(globalFileContent, 'aqui');
 
   const context = useMemo(() => ({
-    fileContent,
-    setFileContent,
+    setGlobalFileContent,
+    globalFileContent,
   }
-  ), []);
+  ), [globalFileContent]);
 
   return (
     <MainContext.Provider value={context}>

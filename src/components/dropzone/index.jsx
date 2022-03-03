@@ -1,15 +1,10 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
+import { parse } from 'papaparse';
 import MainContext from '../../context/MainContext';
 import DropZone from './DropZone';
 
 export default function index() {
-  const [localFileContent, setLocalFileContent] = useState([]);
-  const { setFileContent } = useContext(MainContext);
-
-  useEffect(() => {
-    setFileContent(localFileContent);
-  }, [localFileContent]);
-
+  const { setGlobalFileContent } = useContext(MainContext);
   return (
     <DropZone
       onDragOver={(e) => {
@@ -20,7 +15,8 @@ export default function index() {
         Array.from(e.dataTransfer.files).filter((file) => file.type === 'text/csv')
           .forEach(async (file) => {
             const text = await file.text();
-            setLocalFileContent(text);
+            const result = parse(text);
+            setGlobalFileContent(result);
           });
       }}
     >

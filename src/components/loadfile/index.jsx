@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
+import MainContext from '../../context/MainContext';
 import CsvContent from '../csvcontent';
 import LoadFile from './LoadFile';
 
 export default function index() {
-  const [fileInfo] = useState([{ id: 1, name: 'thiago', email: 'test@example.com' }]);
+  const { globalFileContent } = useContext(MainContext);
+  console.log(globalFileContent, 'loadfile');
   return (
     <LoadFile>
       {
-        !fileInfo
+        globalFileContent.length === 0
           ? null
-          : <CsvContent fileInfo={fileInfo} />
+          : <CsvContent globalFileContent={globalFileContent} />
     }
     </LoadFile>
   );
