@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import MainContext from '../../context/MainContext';
 import CsvContent from './CsvContent';
 
 function index({ fileInfo }) {
-  console.log(fileInfo);
+  const { fileContent } = useContext(MainContext);
+  console.log(fileContent, 'table');
   return (
     <CsvContent>
       <thead>
