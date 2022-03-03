@@ -2,7 +2,6 @@ import React from 'react';
 import CsvContent from './CsvContent';
 
 function index({ globalFileContent }) {
-  console.log(globalFileContent);
   return (
     <CsvContent>
       {globalFileContent.data.map((row) => (
