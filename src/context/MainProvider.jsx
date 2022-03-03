@@ -4,7 +4,6 @@ import MainContext from './MainContext';
 
 function MainProvider({ children }) {
   const [globalFileContent, setGlobalFileContent] = useState([]);
-  console.log(globalFileContent, 'aqui');
 
   const context = useMemo(() => ({
     setGlobalFileContent,

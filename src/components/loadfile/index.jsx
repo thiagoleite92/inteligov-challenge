@@ -5,7 +5,6 @@ import LoadFile from './LoadFile';
 
 export default function index() {
   const { globalFileContent } = useContext(MainContext);
-  console.log(globalFileContent, 'loadfile');
   return (
     <LoadFile>
       {
