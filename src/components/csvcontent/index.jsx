@@ -5,13 +5,15 @@ function index({ globalFileContent }) {
   console.log(globalFileContent);
   return (
     <CsvContent>
-      <thead>
-        {
-          globalFileContent.data[0].map((head) => (
-            <th>{head}</th>
+      {globalFileContent.data.map((row) => (
+        <div>
+          {
+          row.map((cell) => (
+            <span>{cell}</span>
           ))
-        }
-      </thead>
+          }
+        </div>
+      ))}
     </CsvContent>
   );
 }

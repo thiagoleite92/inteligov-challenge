@@ -1,13 +1,19 @@
 import style from 'styled-components';
 
 const LoadFile = style.section`
-  background-color: orange;
-  width: 1200px;
-  margin: 0 auto;
-
-  ul {
-    list-style-type: none;
+  width: 50vh;
+  margin: auto;
+  
+  div {
+    display: flex;
+    border: solid 1px black;
   }
+
+  span {
+    padding: 5px;
+    width: 50%;
+  }
+  
 `;
 
 export default LoadFile;
