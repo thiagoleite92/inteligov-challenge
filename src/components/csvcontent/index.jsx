@@ -1,24 +1,14 @@
 import React, { useState } from 'react';
 import CsvContent from './CsvContent';
 import AddNewRow from './AddNewRow';
+import RenderRows from './RenderRows';
 
-function index({ globalFileContent }) {
+function index({ globalFileContent: { data } }) {
   const [newRender, setNewRender] = useState(0);
 
   return (
     <CsvContent>
-      {globalFileContent.data.map((row) => (
-        <div>
-          {
-            row.map((cell) => (
-              <span>{cell}</span>
-            ))
-            }
-          <label htmlFor="select-row">
-            <input type="checkbox" name="select-row" />
-          </label>
-        </div>
-      ))}
+      {data.map((row) => <RenderRows row={row} />)}
       <AddNewRow newRender={newRender} setNewRender={setNewRender} />
     </CsvContent>
   );

@@ -16,11 +16,10 @@ function AddNewRow({ newRender, setNewRender }) {
   return (
     <div>
       <span />
-      <label htmlFor="blank-row">
+      <label htmlFor="add-new-row">
         <input
           type="button"
-          name="blank-row"
-          className="blank-row"
+          name="add-new-row"
           onClick={addNewRow}
           value="ADD ROW"
         />

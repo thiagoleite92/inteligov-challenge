@@ -40,10 +40,8 @@ const LoadFile = style.section`
   div > div:last-child {
   {
     background-color: #019973;
-    height: 25px;
+    height: 40px;
   }
-
-
 `;
 
 export default LoadFile;

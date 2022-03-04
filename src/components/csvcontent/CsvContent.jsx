@@ -7,7 +7,7 @@ const CsvContent = style.div`
   label {
     background-color: white;
     display: flex;
-    border: 1px solid black;
+    border: solid 1px black;
     width: auto;
   }
 
