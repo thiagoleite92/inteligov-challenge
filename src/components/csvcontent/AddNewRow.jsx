@@ -1,6 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import MainContext from '../../context/MainContext';
+import createEmptyRow from '../../utils/newRow';
 
-function AddNewRow() {
+// eslint-disable-next-line react/prop-types
+function AddNewRow({ setNewRender }) {
+  const { globalFileContent, setGlobalFileContent } = useContext(MainContext);
+
+  const addNewRow = () => {
+    const mountedRow = createEmptyRow(globalFileContent.data[0].length);
+    globalFileContent.data.push(mountedRow);
+    setGlobalFileContent(globalFileContent);
+    console.log(globalFileContent.data);
+    setNewRender((oldState) => oldState + 1);
+  };
+
   return (
     <div>
       <span />
@@ -9,7 +22,7 @@ function AddNewRow() {
           type="button"
           name="blank-row"
           className="blank-row"
-          onClick={() => console.log('oi')}
+          onClick={addNewRow}
           value="ADD ROW"
         />
       </label>

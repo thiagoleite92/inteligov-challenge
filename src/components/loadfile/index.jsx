@@ -5,14 +5,13 @@ import LoadFile from './LoadFile';
 
 export default function index() {
   const { globalFileContent } = useContext(MainContext);
+
   return (
     <LoadFile>
       {
         globalFileContent.length === 0
           ? null
-          : (
-            <CsvContent globalFileContent={globalFileContent} />
-          )
+          : <CsvContent globalFileContent={globalFileContent} />
     }
     </LoadFile>
   );
