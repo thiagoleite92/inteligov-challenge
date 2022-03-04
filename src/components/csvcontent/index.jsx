@@ -1,5 +1,6 @@
 import React from 'react';
 import CsvContent from './CsvContent';
+import AddNewRow from './AddNewRow';
 
 function index({ globalFileContent }) {
   return (
@@ -16,18 +17,7 @@ function index({ globalFileContent }) {
           </label>
         </div>
       ))}
-      <div>
-        <span />
-        <label htmlFor="blank-row">
-          <input
-            type="button"
-            name="blank-row"
-            className="blank-row"
-            onClick={() => console.log('oi')}
-            value="ADD ROW"
-          />
-        </label>
-      </div>
+      <AddNewRow />
     </CsvContent>
   );
 }
