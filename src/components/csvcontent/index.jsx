@@ -4,7 +4,6 @@ import AddNewRow from './AddNewRow';
 
 function index({ globalFileContent }) {
   const [newRender, setNewRender] = useState(0);
-  console.log(globalFileContent.data, 'csvcontent');
 
   return (
     <CsvContent>

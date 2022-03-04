@@ -1,17 +1,16 @@
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import MainContext from '../../context/MainContext';
 import createEmptyRow from '../../utils/newRow';
 
-// eslint-disable-next-line react/prop-types
-function AddNewRow({ setNewRender }) {
+function AddNewRow({ newRender, setNewRender }) {
   const { globalFileContent, setGlobalFileContent } = useContext(MainContext);
 
   const addNewRow = () => {
     const mountedRow = createEmptyRow(globalFileContent.data[0].length);
     globalFileContent.data.push(mountedRow);
     setGlobalFileContent(globalFileContent);
-    console.log(globalFileContent.data);
-    setNewRender((oldState) => oldState + 1);
+    setNewRender(newRender + 1); // Changing father state to force new render
   };
 
   return (
@@ -29,5 +28,10 @@ function AddNewRow({ setNewRender }) {
     </div>
   );
 }
+
+AddNewRow.propTypes = {
+  setNewRender: PropTypes.func,
+  newRender: PropTypes.number,
+}.isRequired;
 
 export default AddNewRow;
