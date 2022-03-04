@@ -17,6 +17,7 @@ const CsvContent = style.div`
     height: 25h;
     margin: 0 20px;
   }
+
 `;
 
 export default CsvContent;

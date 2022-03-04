@@ -1,17 +1,23 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useState } from 'react';
 
 function RenderRows({ row }) {
+  const [select, setSelect] = useState(false);
+
   return (
-    <div key={row}>
+    <div
+      role="button"
+      key={row}
+      onClick={() => setSelect(!select)}
+      tabIndex={0}
+      onKeyUp
+      style={{ backgroundColor: select ? '#EEDC82' : '' }}
+    >
       {
-            row.map((cell) => (
-              <span key={cell}>{cell}</span>
-            ))
-            }
-      <label htmlFor="select-row">
-        <input type="checkbox" name="select-row" />
-      </label>
+      row.map((cell) => (
+        <span key={cell}>{cell}</span>
+      ))
+      }
     </div>
   );
 }

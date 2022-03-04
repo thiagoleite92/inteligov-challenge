@@ -42,6 +42,10 @@ const LoadFile = style.section`
     background-color: #019973;
     height: 40px;
   }
+
+  #selected-row {
+    background: black;
+  }
 `;
 
 export default LoadFile;

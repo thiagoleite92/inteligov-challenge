@@ -15,15 +15,12 @@ function AddNewRow({ newRender, setNewRender }) {
 
   return (
     <div>
-      <span />
-      <label htmlFor="add-new-row">
-        <input
-          type="button"
-          name="add-new-row"
-          onClick={addNewRow}
-          value="ADD ROW"
-        />
-      </label>
+      <button
+        type="button"
+        onClick={addNewRow}
+      >
+        ADD ROW
+      </button>
     </div>
   );
 }
