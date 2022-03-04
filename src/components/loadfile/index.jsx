@@ -10,7 +10,9 @@ export default function index() {
       {
         globalFileContent.length === 0
           ? null
-          : <CsvContent globalFileContent={globalFileContent} />
+          : (
+            <CsvContent globalFileContent={globalFileContent} />
+          )
     }
     </LoadFile>
   );

@@ -1,8 +1,16 @@
 import style from 'styled-components';
 
 const LoadFile = style.section`
+  display: flex;
+  width: 100vh;
   margin: 0 auto;
-  
+  flex-direction: column;
+  margin-bottom: 30px;
+
+  button {
+    margin-top: 20px;
+  }
+
   div {
     display: flex;
     width: 100vh;
