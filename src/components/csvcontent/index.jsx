@@ -8,7 +8,7 @@ function index({ globalFileContent: { data } }) {
 
   return (
     <CsvContent>
-      {data.map((row) => <RenderRows row={row} />)}
+      {data.map((row, pos) => <RenderRows row={row} pos={pos} />)}
       <AddNewRow newRender={newRender} setNewRender={setNewRender} />
     </CsvContent>
   );

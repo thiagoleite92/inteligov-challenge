@@ -7,4 +7,12 @@ function createEmptyRow(length) {
   return mountedNewRow;
 }
 
-export default createEmptyRow;
+function findIndexPos(arrayOfPos, pos) {
+  const position = arrayOfPos.indexOf(pos);
+  return position;
+}
+
+export {
+  createEmptyRow,
+  findIndexPos,
+};
