@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import CsvContent from './CsvContent';
-import AddNewRow from './AddNewRow';
 import RenderRows from './RenderRows';
+import { DeleteRows, AddNewRow } from './buttons';
 
 function index({ globalFileContent: { data } }) {
   const [newRender, setNewRender] = useState(0);
@@ -14,7 +14,10 @@ function index({ globalFileContent: { data } }) {
           pos={pos}
         />
       ))}
-      <AddNewRow newRender={newRender} setNewRender={setNewRender} />
+      <div>
+        <AddNewRow newRender={newRender} setNewRender={setNewRender} />
+        <DeleteRows />
+      </div>
     </CsvContent>
   );
 }

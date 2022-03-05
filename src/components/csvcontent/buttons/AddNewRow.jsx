@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import MainContext from '../../context/MainContext';
-import { createEmptyRow } from '../../utils';
+import MainContext from '../../../context/MainContext';
+import { createEmptyRow } from '../../../utils';
 
 function AddNewRow({ newRender, setNewRender }) {
   const { globalFileContent, setGlobalFileContent } = useContext(MainContext);
@@ -14,14 +14,12 @@ function AddNewRow({ newRender, setNewRender }) {
   };
 
   return (
-    <div>
-      <button
-        type="button"
-        onClick={addNewRow}
-      >
-        ADD ROW
-      </button>
-    </div>
+    <button
+      type="button"
+      onClick={addNewRow}
+    >
+      ADD ROW
+    </button>
   );
 }
 
