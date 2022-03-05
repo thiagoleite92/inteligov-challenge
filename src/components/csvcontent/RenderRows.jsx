@@ -11,18 +11,16 @@ function RenderRows({ row, pos }) {
     setSelect(!select);
     const tempArray = selectedRows.slice();
 
-    if (select) {
+    if (!select) {
       tempArray.push(pos);
       setSelectedRows(tempArray);
     }
 
-    if (!select) {
+    if (select) {
       const position = findIndexPos(tempArray, pos);
       tempArray.splice(position, 1);
       setSelectedRows(tempArray);
     }
-
-    console.log(selectedRows, 'renderows');
   };
 
   return (
