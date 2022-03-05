@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { parse } from 'papaparse';
 import MainContext from '../../context/MainContext';
 import DropZone from './DropZone';
+import { insertIdToRows } from '../../utils';
 
 export default function index() {
   const { setGlobalFileContent } = useContext(MainContext);
@@ -16,7 +17,8 @@ export default function index() {
           .forEach(async (file) => {
             const text = await file.text();
             const result = parse(text);
-            setGlobalFileContent(result);
+            const formatedData = insertIdToRows(result.data);
+            setGlobalFileContent(formatedData);
           });
       }}
     >

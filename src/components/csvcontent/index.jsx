@@ -3,20 +3,20 @@ import CsvContent from './CsvContent';
 import RenderRows from './RenderRows';
 import { DeleteRows, AddNewRow } from './buttons';
 
-function index({ globalFileContent: { data } }) {
+function index({ globalFileContent }) {
   const [newRender, setNewRender] = useState(0);
 
   return (
     <CsvContent>
-      {data.map((row, pos) => (
+      {globalFileContent.map(({ data, id }) => (
         <RenderRows
-          row={row}
-          pos={pos}
+          data={data}
+          id={id}
         />
       ))}
       <div>
         <AddNewRow newRender={newRender} setNewRender={setNewRender} />
-        <DeleteRows />
+        <DeleteRows newRender={newRender} setNewRender={setNewRender} />
       </div>
     </CsvContent>
   );

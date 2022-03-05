@@ -4,7 +4,7 @@ import { nanoid } from 'nanoid';
 import MainContext from '../../context/MainContext';
 import { findIndexPos } from '../../utils';
 
-function RenderRows({ row, pos }) {
+function RenderRows({ data, id }) {
   const { selectedRows, setSelectedRows } = useContext(MainContext);
   const [select, setSelect] = useState(false);
 
@@ -13,12 +13,12 @@ function RenderRows({ row, pos }) {
     const tempArray = selectedRows.slice();
 
     if (!select) {
-      tempArray.push(pos);
+      tempArray.push(id);
       setSelectedRows(tempArray);
     }
 
     if (select) {
-      const position = findIndexPos(tempArray, pos);
+      const position = findIndexPos(tempArray, id);
       tempArray.splice(position, 1);
       setSelectedRows(tempArray);
     }
@@ -34,7 +34,7 @@ function RenderRows({ row, pos }) {
       style={{ backgroundColor: select ? '#EEDC82' : '' }}
     >
       {
-      row.map((cell) => (
+      data.map((cell) => (
         <span key={nanoid()}>{cell}</span>
       ))
       }

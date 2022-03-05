@@ -1,3 +1,5 @@
+import { nanoid } from 'nanoid';
+
 function createEmptyRow(length) {
   const mountedNewRow = [];
   for (let i = 0; i < length; i += 1) {
@@ -12,7 +14,16 @@ function findIndexPos(arrayOfPos, pos) {
   return position;
 }
 
+function insertIdToRows(data) {
+  const newArray = data.map((row) => ({
+    data: row, id: nanoid(),
+  }));
+
+  return newArray;
+}
+
 export {
   createEmptyRow,
   findIndexPos,
+  insertIdToRows,
 };
