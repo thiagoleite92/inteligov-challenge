@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useContext, useState } from 'react';
+import { nanoid } from 'nanoid';
 import MainContext from '../../context/MainContext';
 import { findIndexPos } from '../../utils';
 
@@ -26,7 +27,7 @@ function RenderRows({ row, pos }) {
   return (
     <div
       role="button"
-      key={row}
+      key={nanoid()}
       onClick={pickRow}
       tabIndex={0}
       onKeyUp={null}
@@ -34,7 +35,7 @@ function RenderRows({ row, pos }) {
     >
       {
       row.map((cell) => (
-        <span key={cell}>{cell}</span>
+        <span key={nanoid()}>{cell}</span>
       ))
       }
     </div>
