@@ -16,14 +16,24 @@ function findIndexPos(arr, id) {
 
 function insertIdToRows(data) {
   const newArray = data.map((row) => ({
-    data: row, id: nanoid(), selected: false,
+    data: row, id: nanoid(),
   }));
 
   return newArray;
+}
+
+function extractHeaderFields(data) {
+  const headerFields = data.reduce((acc, header) => {
+    acc[header] = '';
+    return acc;
+  }, {});
+
+  return headerFields;
 }
 
 export {
   createEmptyRow,
   findIndexPos,
   insertIdToRows,
+  extractHeaderFields,
 };

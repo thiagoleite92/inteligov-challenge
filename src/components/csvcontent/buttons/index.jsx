@@ -1,2 +1,3 @@
 export { default as AddNewRow } from './AddNewRow';
-export { default as DeleteRows } from './DeleteRows';
+export { default as DeleteRow } from './DeleteRow';
+export { default as EditRow } from './EditRow';

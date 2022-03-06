@@ -1,23 +1,25 @@
 import React, { useState } from 'react';
 import CsvContent from './CsvContent';
+import RenderEditRow from './RenderEditRow';
 import RenderRows from './RenderRows';
-import { DeleteRows } from './buttons';
 
 function index({ globalFileContent }) {
-  const [newRender, setNewRender] = useState(0);
+  const [enableEditRow, setEnableEditRow] = useState(null);
   return (
     <CsvContent>
-      {globalFileContent.map(({ data, id, selected }) => (
-        <RenderRows
-          data={data}
-          id={id}
-          selected={selected}
-        />
-      ))}
-      <div>
-        {/* <AddNewRow newRender={newRender} setNewRender={setNewRender} /> */}
-        <DeleteRows newRender={newRender} setNewRender={setNewRender} />
-      </div>
+      {
+        globalFileContent.map(({ data, id }) => {
+          if (enableEditRow === id) {
+            return (
+              <RenderEditRow data={data} id={id} setEnableEditRow={setEnableEditRow} />
+            );
+          }
+          return (
+            <RenderRows data={data} id={id} setEnableEditRow={setEnableEditRow} />
+          );
+        })
+      }
+      <div><span /></div>
     </CsvContent>
   );
 }

@@ -4,15 +4,12 @@ import MainContext from './MainContext';
 
 function MainProvider({ children }) {
   const [globalFileContent, setGlobalFileContent] = useState([]);
-  const [selectedRows, setSelectedRows] = useState([]);
 
   const context = useMemo(() => ({
     setGlobalFileContent,
     globalFileContent,
-    selectedRows,
-    setSelectedRows,
   }
-  ), [globalFileContent, selectedRows]);
+  ), [globalFileContent]);
 
   return (
     <MainContext.Provider value={context}>
