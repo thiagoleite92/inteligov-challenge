@@ -26,6 +26,7 @@ function RenderRows({ data, id }) {
 
   return (
     <div
+      id={id}
       role="button"
       key={nanoid()}
       onClick={pickRow}

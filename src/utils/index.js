@@ -9,14 +9,14 @@ function createEmptyRow(length) {
   return mountedNewRow;
 }
 
-function findIndexPos(arrayOfPos, pos) {
-  const position = arrayOfPos.indexOf(pos);
+function findIndexPos(arr, id) {
+  const position = arr.findIndex((element) => element.id === id);
   return position;
 }
 
 function insertIdToRows(data) {
   const newArray = data.map((row) => ({
-    data: row, id: nanoid(),
+    data: row, id: nanoid(), selected: false,
   }));
 
   return newArray;

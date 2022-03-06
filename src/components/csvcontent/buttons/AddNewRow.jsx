@@ -7,8 +7,8 @@ function AddNewRow({ newRender, setNewRender }) {
   const { globalFileContent, setGlobalFileContent } = useContext(MainContext);
 
   const addNewRow = () => {
-    const mountedRow = createEmptyRow(globalFileContent.length);
-    globalFileContent.data.push(mountedRow);
+    const mountedRow = createEmptyRow(globalFileContent[0].data.length);
+    globalFileContent.push(mountedRow);
     setGlobalFileContent(globalFileContent);
     setNewRender(newRender + 1); // Changing father state to force new render
   };
