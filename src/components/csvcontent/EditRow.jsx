@@ -19,9 +19,12 @@ function RenderEditRow({ id, setEnableEditRow }) {
   const handleChange = (e) => {
     e.preventDefault();
     const { name, value } = e.target;
-    setInputs((oldState) => ({
+
+    const trackInputsValue = (oldState) => ({
       ...oldState, [name]: value,
-    }));
+    });
+
+    setInputs(trackInputsValue);
   };
 
   const handleSaveEdit = () => {
@@ -36,12 +39,14 @@ function RenderEditRow({ id, setEnableEditRow }) {
       }
     }
 
-    const arrayToSave = globalFileContent.map((row) => {
+    const switchDataRowById = (row) => {
       if (row.id === id) {
         return { data: infoToSave, id };
       }
       return row;
-    });
+    };
+
+    const arrayToSave = globalFileContent.map(switchDataRowById);
 
     setGlobalFileContent(arrayToSave);
     return setEnableEditRow(null);
