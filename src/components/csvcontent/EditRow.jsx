@@ -1,7 +1,7 @@
-/* eslint-disable react/prop-types */
 import React, { useContext, useEffect, useState } from 'react';
 import { GiSave } from 'react-icons/gi';
 import { MdCancel } from 'react-icons/md';
+import PropTypes from 'prop-types';
 import MainContext from '../../context/MainContext';
 import { extractHeaderFields, findIndexPos } from '../../utils';
 
@@ -75,5 +75,10 @@ function RenderEditRow({ id, setEnableEditRow }) {
     </form>
   );
 }
+
+RenderEditRow.propTypes = {
+  id: PropTypes.number,
+  setEnableEditRow: PropTypes.func,
+}.isRequired;
 
 export default RenderEditRow;

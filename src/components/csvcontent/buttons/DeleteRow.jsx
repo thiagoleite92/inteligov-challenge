@@ -1,6 +1,6 @@
-/* eslint-disable react/prop-types */
 import React, { useContext } from 'react';
 import { MdDelete } from 'react-icons/md';
+import PropTypes from 'prop-types';
 import MainContext from '../../../context/MainContext';
 import { findIndexPos } from '../../../utils';
 
@@ -23,5 +23,9 @@ function DeleteRow({ id }) {
     </button>
   );
 }
+
+DeleteRow.propTypes = {
+  id: PropTypes.number,
+}.isRequired;
 
 export default DeleteRow;
