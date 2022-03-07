@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { GiSave } from 'react-icons/gi';
 import { MdCancel } from 'react-icons/md';
 import PropTypes from 'prop-types';
+import { nanoid } from 'nanoid';
 import MainContext from '../../context/MainContext';
 import { extractHeaderFields, findIndexPos } from '../../utils';
 
@@ -55,7 +56,7 @@ function RenderEditRow({ id, setEnableEditRow }) {
   return (
     <form>
       {headers.map((header) => (
-        <label htmlFor={header}>
+        <label htmlFor={header} key={nanoid()}>
           <input required type="text" name={header} onChange={(e) => handleChange(e)} placeholder={header} />
         </label>
       ))}

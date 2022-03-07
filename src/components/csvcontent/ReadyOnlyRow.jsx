@@ -6,9 +6,7 @@ import { DeleteRow } from './buttons';
 
 function RenderRows({ data, id, setEnableEditRow }) {
   return (
-    <div
-      key={nanoid()}
-    >
+    <div>
       {
       data.map((cell) => (
         <span key={nanoid()}>{cell}</span>

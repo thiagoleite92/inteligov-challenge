@@ -38,7 +38,7 @@ function AddNewRow() {
     <>
       <form className="add-row">
         {headers.map((header) => (
-          <label htmlFor={header}>
+          <label htmlFor={header} key={nanoid()}>
             {header}
             <input required type="text" name={header} onChange={(e) => handleChange(e)} />
           </label>

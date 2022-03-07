@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { nanoid } from 'nanoid';
 import { AddNewRow } from './buttons';
 import CsvContent from './CsvContent';
 import EditRow from './EditRow';
@@ -11,12 +12,18 @@ function index({ globalFileContent }) {
       {
         globalFileContent.map(({ data, id }) => (
           enableEditRow === id
-            ? <EditRow data={data} id={id} setEnableEditRow={setEnableEditRow} />
-            : <ReadyOnlyRow data={data} id={id} setEnableEditRow={setEnableEditRow} />
+            ? <EditRow data={data} id={id} setEnableEditRow={setEnableEditRow} key={nanoid()} />
+            : (
+              <ReadyOnlyRow
+                data={data}
+                id={id}
+                setEnableEditRow={setEnableEditRow}
+                key={nanoid()}
+              />
+            )
         ))
       }
       <div><span><AddNewRow /></span></div>
-
     </CsvContent>
   );
 }
