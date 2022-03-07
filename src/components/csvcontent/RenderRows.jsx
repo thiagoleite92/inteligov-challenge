@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { nanoid } from 'nanoid';
+import { AiOutlineEdit } from 'react-icons/ai';
 import { DeleteRow } from './buttons';
 
 function RenderRows({ data, id, setEnableEditRow }) {
@@ -13,7 +14,9 @@ function RenderRows({ data, id, setEnableEditRow }) {
         <span key={nanoid()}>{cell}</span>
       ))
       }
-      <button type="button" onClick={() => setEnableEditRow(id)}>EDIT</button>
+      <button type="button" onClick={() => setEnableEditRow(id)}>
+        <AiOutlineEdit />
+      </button>
       <DeleteRow id={id} />
     </div>
   );

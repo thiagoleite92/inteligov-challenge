@@ -59,8 +59,8 @@ function RenderEditRow({ id, setEnableEditRow }) {
             ? 'First row cannot have repeated names'
             : null
         }
-        <button type="button" onClick={handleSaveEdit}>Salvar</button>
-        <button type="button" onClick={() => setEnableEditRow(null)}>Cancelar</button>
+        <button type="button" onClick={handleSaveEdit} className="btn-edit">Salvar</button>
+        <button type="button" onClick={() => setEnableEditRow(null)} className="btn-edit">Cancelar</button>
       </div>
     </form>
   );

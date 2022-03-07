@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useContext } from 'react';
+import { MdDelete } from 'react-icons/md';
 import MainContext from '../../../context/MainContext';
 import { findIndexPos } from '../../../utils';
 
@@ -17,7 +18,9 @@ function DeleteRow({ id }) {
   };
 
   return (
-    <button type="button" onClick={handleDelete}>DEL</button>
+    <button type="button" onClick={handleDelete} className="btn__btn-del">
+      <MdDelete />
+    </button>
   );
 }
 

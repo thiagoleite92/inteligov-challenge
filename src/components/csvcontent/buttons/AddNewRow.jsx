@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { nanoid } from 'nanoid';
+import { AiOutlinePlus } from 'react-icons/ai';
 import MainContext from '../../../context/MainContext';
 import { extractHeaderFields } from '../../../utils';
 
@@ -33,7 +34,7 @@ function AddNewRow() {
   };
 
   return (
-    <form>
+    <form className="add-row">
       {headers.map((header) => (
         <label htmlFor={header}>
           {header}
@@ -41,7 +42,7 @@ function AddNewRow() {
         </label>
       ))}
       <button type="button" onClick={handleAddRow}>
-        Add New Row
+        <AiOutlinePlus />
       </button>
     </form>
   );

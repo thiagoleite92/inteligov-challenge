@@ -20,7 +20,7 @@ function index({ globalFileContent }) {
           );
         })
       }
-      <AddNewRow />
+      <div><span><AddNewRow /></span></div>
     </CsvContent>
   );
 }
