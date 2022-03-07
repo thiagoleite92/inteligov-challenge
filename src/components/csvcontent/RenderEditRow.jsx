@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useContext, useEffect, useState } from 'react';
+import { GiSave } from 'react-icons/gi';
+import { MdCancel } from 'react-icons/md';
 import MainContext from '../../context/MainContext';
 import { extractHeaderFields, findIndexPos } from '../../utils';
 
@@ -59,8 +61,12 @@ function RenderEditRow({ id, setEnableEditRow }) {
             ? 'First row cannot have repeated names'
             : null
         }
-        <button type="button" onClick={handleSaveEdit} className="btn-edit">Salvar</button>
-        <button type="button" onClick={() => setEnableEditRow(null)} className="btn-edit">Cancelar</button>
+        <button type="button" onClick={handleSaveEdit} className="btn-edit">
+          <GiSave />
+        </button>
+        <button type="button" onClick={() => setEnableEditRow(null)} className="btn-edit">
+          <MdCancel />
+        </button>
       </div>
     </form>
   );
