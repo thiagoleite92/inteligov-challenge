@@ -64,7 +64,7 @@ function RenderEditRow({ id, setEnableEditRow }) {
         <button type="button" onClick={handleSaveEdit} className="btn-edit">
           <GiSave />
         </button>
-        <button type="button" onClick={() => setEnableEditRow(null)} className="btn-edit">
+        <button type="button" onClick={() => setEnableEditRow(null)} className="btn-del">
           <MdCancel />
         </button>
       </div>
