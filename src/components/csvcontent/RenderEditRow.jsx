@@ -1,12 +1,13 @@
 /* eslint-disable react/prop-types */
 import React, { useContext, useEffect, useState } from 'react';
 import MainContext from '../../context/MainContext';
-import { extractHeaderFields } from '../../utils';
+import { extractHeaderFields, findIndexPos } from '../../utils';
 
 function RenderEditRow({ id, setEnableEditRow }) {
   const { globalFileContent, setGlobalFileContent } = useContext(MainContext);
   const [headers, setHeaders] = useState([]);
   const [inputs, setInputs] = useState({});
+  const [verifyColumn, setVerifyColumn] = useState(false);
 
   useEffect(() => {
     setHeaders(globalFileContent[0].data);
@@ -23,6 +24,15 @@ function RenderEditRow({ id, setEnableEditRow }) {
 
   const handleSaveEdit = () => {
     const infoToSave = headers.map((head) => inputs[head]);
+
+    const position = findIndexPos(globalFileContent, id);
+
+    if (position === 0) {
+      const set = new Set(infoToSave);
+      if (set.size !== infoToSave.length) {
+        return setVerifyColumn(true);
+      }
+    }
 
     const arrayToSave = globalFileContent.map((row) => {
       if (row.id === id) {
@@ -44,7 +54,11 @@ function RenderEditRow({ id, setEnableEditRow }) {
         </label>
       ))}
       <div>
-
+        {
+          verifyColumn
+            ? 'Colunas precisam ter nomes diferentes'
+            : null
+        }
         <button type="button" onClick={handleSaveEdit}>Salvar</button>
         <button type="button" onClick={() => setEnableEditRow(null)}>Cancelar</button>
       </div>
