@@ -3,6 +3,7 @@ import { nanoid } from 'nanoid';
 import { AiOutlinePlus } from 'react-icons/ai';
 import MainContext from '../../../context/MainContext';
 import { extractHeaderFields } from '../../../utils';
+import DownloadCsv from './DownloadCsv';
 
 function AddNewRow() {
   const { globalFileContent, setGlobalFileContent } = useContext(MainContext);
@@ -34,17 +35,20 @@ function AddNewRow() {
   };
 
   return (
-    <form className="add-row">
-      {headers.map((header) => (
-        <label htmlFor={header}>
-          {header}
-          <input required type="text" name={header} onChange={(e) => handleChange(e)} />
-        </label>
-      ))}
-      <button type="button" onClick={handleAddRow}>
-        <AiOutlinePlus />
-      </button>
-    </form>
+    <>
+      <form className="add-row">
+        {headers.map((header) => (
+          <label htmlFor={header}>
+            {header}
+            <input required type="text" name={header} onChange={(e) => handleChange(e)} />
+          </label>
+        ))}
+        <button type="button" onClick={handleAddRow}>
+          <AiOutlinePlus />
+        </button>
+      </form>
+      <DownloadCsv />
+    </>
   );
 }
 

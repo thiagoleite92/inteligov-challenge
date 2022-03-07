@@ -16,6 +16,7 @@ function index({ globalFileContent }) {
         ))
       }
       <div><span><AddNewRow /></span></div>
+
     </CsvContent>
   );
 }
