@@ -4,7 +4,7 @@ const DropZone = style.div`
   border: 1px solid black;
   width: 500px;
   background-color: #8cc140;
-  margin: 20px auto;
+  margin: 30px auto;
   padding: 50px 0;
   text-align: center;
   text-transform: uppercase;

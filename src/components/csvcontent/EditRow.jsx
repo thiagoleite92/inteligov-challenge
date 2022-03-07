@@ -56,8 +56,7 @@ function RenderEditRow({ id, setEnableEditRow }) {
     <form>
       {headers.map((header) => (
         <label htmlFor={header}>
-          {header}
-          <input required type="text" name={header} onChange={(e) => handleChange(e)} />
+          <input required type="text" name={header} onChange={(e) => handleChange(e)} placeholder={header} />
         </label>
       ))}
       <div>

@@ -10,7 +10,7 @@ export default function index() {
     <LoadFile>
       {
         globalFileContent.length === 0
-          ? <h3>Nenhum CSV carregado ainda</h3>
+          ? <h3>here will appear the csv content</h3>
           : <CsvContent globalFileContent={globalFileContent} />
     }
     </LoadFile>

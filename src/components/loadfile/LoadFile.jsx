@@ -7,6 +7,12 @@ const LoadFile = style.section`
   flex-direction: column;
   margin-bottom: 30px;
 
+  h3 {
+    margin-top: 30px;
+    text-transform: uppercase;
+    align-self: center;
+  }
+
   button {
     margin-top: 20px;
   }
@@ -14,6 +20,7 @@ const LoadFile = style.section`
   div {
     display: flex;
     width: 100vh;
+    max-height: 50px;
     margin: 0 auto;
   }
   
