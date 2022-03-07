@@ -1,31 +1,50 @@
-import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext, useEffect, useState } from 'react';
+import { nanoid } from 'nanoid';
 import MainContext from '../../../context/MainContext';
-import { createEmptyRow } from '../../../utils';
+import { extractHeaderFields } from '../../../utils';
 
-function AddNewRow({ newRender, setNewRender }) {
+function AddNewRow() {
   const { globalFileContent, setGlobalFileContent } = useContext(MainContext);
+  const [headers, setHeaders] = useState([]);
+  const [inputs, setInputs] = useState({});
 
-  const addNewRow = () => {
-    const mountedRow = createEmptyRow(globalFileContent[0].data.length);
-    globalFileContent.push(mountedRow);
-    setGlobalFileContent(globalFileContent);
-    setNewRender(newRender + 1); // Changing father state to force new render
+  useEffect(() => {
+    setHeaders(globalFileContent[0].data);
+    setInputs(extractHeaderFields(globalFileContent[0].data));
+  }, [globalFileContent]);
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    setInputs((oldState) => ({
+      ...oldState, [name]: value,
+    }));
+  };
+
+  const handleAddRow = (e) => {
+    e.preventDefault();
+    const tempArray = globalFileContent.slice();
+    const inputsValue = headers.map((head) => inputs[head]);
+
+    const newRow = { data: inputsValue, id: nanoid() };
+
+    tempArray.push(newRow);
+    setGlobalFileContent(tempArray);
   };
 
   return (
-    <button
-      type="button"
-      onClick={addNewRow}
-    >
-      ADD ROW
-    </button>
+    <form>
+      {headers.map((header) => (
+        <label htmlFor={header}>
+          {header}
+          <input required type="text" name={header} onChange={(e) => handleChange(e)} />
+        </label>
+      ))}
+      <button type="button" onClick={handleAddRow}>
+        Add New Row
+      </button>
+    </form>
   );
 }
-
-AddNewRow.propTypes = {
-  setNewRender: PropTypes.func,
-  newRender: PropTypes.number,
-}.isRequired;
 
 export default AddNewRow;

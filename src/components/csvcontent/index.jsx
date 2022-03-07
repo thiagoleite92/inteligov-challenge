@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { AddNewRow } from './buttons';
 import CsvContent from './CsvContent';
 import RenderEditRow from './RenderEditRow';
 import RenderRows from './RenderRows';
@@ -19,7 +20,7 @@ function index({ globalFileContent }) {
           );
         })
       }
-      <div><span /></div>
+      <AddNewRow />
     </CsvContent>
   );
 }

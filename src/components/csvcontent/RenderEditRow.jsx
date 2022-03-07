@@ -42,7 +42,7 @@ function RenderEditRow({ id, setEnableEditRow }) {
     });
 
     setGlobalFileContent(arrayToSave);
-    setEnableEditRow(null);
+    return setEnableEditRow(null);
   };
 
   return (
@@ -56,7 +56,7 @@ function RenderEditRow({ id, setEnableEditRow }) {
       <div>
         {
           verifyColumn
-            ? 'Colunas precisam ter nomes diferentes'
+            ? 'First row cannot have repeated names'
             : null
         }
         <button type="button" onClick={handleSaveEdit}>Salvar</button>
