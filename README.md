@@ -13,7 +13,9 @@
 
   - Faça o clone do projeto para sua máquina, link: git@github.com:thiagoleite92/inteligov-challenge.git
   - Navegue até a pasta do projeto via terminal
-  - Digite no terminal: npm start (uma janela do seu navegador padrão irá abrir)
+  - Utilize o comando npm i para instalar as dependências do projeto
+  - Digite no terminal: npm start, para poder rodar o projeto na sua máquina (uma janela do seu navegador padrão irá abrir)
+  - Caso uma nova janela do seu navegador padrão não abra, abra uma janela manualmente e navegue para o link: http://localhost:3000
   - Arraste um arquivo csv para dentro da caixa de diálogo
   -   *Para demonstração utilize o arquivo democsv.csv que vai junto dentro da pasta raiz*
 
